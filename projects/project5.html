@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>100 Days of Go</title>
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+
+        /* Sections */
+        section {
+            margin: 3rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: #007acc;
+        }
+
+        section p,
+        section ul {
+            margin-top: 1rem;
+        }
+
+        section ul {
+            list-style: inside disc;
+            color: #555;
+        }
+
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.875rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Day 1–5 -->
+        <section id="day1-5">
+            <h2>Day 1–5: Getting Started with Go</h2>
+            <ul>
+                <li>Setup Go environment; learn variables, data types, control structures.</li>
+                <li>Write simple programs: printing text, manipulating variables.</li>
+                <li>Explore basic tutorials to get comfortable with Go syntax.</li>
+            </ul>
+        </section>
+
+        <!-- Day 6–10 -->
+        <section id="day6-10">
+            <h2>Day 6–10: Deepening Knowledge</h2>
+            <ul>
+                <li>Dive into functions, arrays, slices, and maps.</li>
+                <li>Study pointers and their use in Go.</li>
+                <li>Understand packages, imports, and name exporting.</li>
+            </ul>
+        </section>
+
+        <!-- Day 11–15 -->
+        <section id="day11-15">
+            <h2>Day 11–15: Advanced Concepts</h2>
+            <ul>
+                <li>Learn interfaces, goroutines, and channels for concurrency.</li>
+                <li>Practice error handling and Go best practices.</li>
+                <li>Explore structs, methods, and OOP patterns in Go.</li>
+            </ul>
+        </section>
+
+        <!-- Day 16–20 -->
+        <section id="day16-20">
+            <h2>Day 16–20: Advanced Go Features</h2>
+            <ul>
+                <li>Use <code>defer</code> statements and resource management.</li>
+                <li>Work with file and directory I/O.</li>
+                <li>Write and run unit tests for Go code.</li>
+            </ul>
+        </section>
+
+        <!-- Day 21–25 -->
+        <section id="day21-25">
+            <h2>Day 21–25: Web Development with Go</h2>
+            <ul>
+                <li>Understand HTTP fundamentals in Go.</li>
+                <li>Build apps with Gin or Echo frameworks.</li>
+                <li>Create simple RESTful web services.</li>
+            </ul>
+        </section>
+
+        <!-- Day 26–30 -->
+        <section id="day26-30">
+            <h2>Day 26–30: Mini Projects</h2>
+            <ul>
+                <li>Review basics, solidify understanding.</li>
+                <li>Build small apps: simple CRUD, CLI tools, or basic web apps.</li>
+            </ul>
+        </section>
+
+        <!-- Day 31–45 -->
+        <section id="day31-45">
+            <h2>Day 31–45: Intermediate Project</h2>
+            <ul>
+                <li>Develop a blog web app with Go backend and MySQL.</li>
+                <li>Implement responsive frontend using Go frameworks.</li>
+            </ul>
+        </section>
+
+        <!-- Day 46–60 -->
+        <section id="day46-60">
+            <h2>Day 46–60: Advanced Project</h2>
+            <ul>
+                <li>Build a real-time chat app with WebSockets.</li>
+                <li>Containerize with Docker & docker-compose.</li>
+                <li>Deploy to Minikube and set up CI/CD with Jenkins.</li>
+            </ul>
+        </section>
+
+        <!-- Day 61–75 -->
+        <section id="day61-75">
+            <h2>Day 61–75: Advanced Topics in Go</h2>
+            <ul>
+                <li>Explore reflection and type assertions.</li>
+                <li>Use <code>context</code> for cancellation and timeouts.</li>
+                <li>Study concurrency patterns and best practices.</li>
+            </ul>
+        </section>
+
+        <!-- Day 76–90 -->
+        <section id="day76-90">
+            <h2>Day 76–90: Frameworks & Tools</h2>
+            <ul>
+                <li>Work with Docker SDK and Kubernetes client-go.</li>
+                <li>Integrate Go with Terraform, Ansible, and Packer.</li>
+                <li>Implement monitoring with Prometheus & Grafana.</li>
+            </ul>
+        </section>
+
+        <!-- Day 91–100 -->
+        <section id="day91-100">
+            <h2>Day 91–100: Capstone CLI Project</h2>
+            <ul>
+                <li>Build a Go CLI with Cobra for Terraform & Docker automation.</li>
+                <li>Use <code>tfexec</code> and Docker SDK in code.</li>
+                <li>Add flags, interactive prompts, and robust error handling.</li>
+                <li>Finalize with tests, docs, and version control.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 • Built by Pradip Babar • <a href="https://github.com/Pradipbabar/100-Days-of-Go"
+            target="_blank">GitHub Repo</a>
+    </footer>
+</body>
+
+</html>

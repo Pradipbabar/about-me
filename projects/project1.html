@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terraform AWS Resource Master</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Sections */
+        section {
+            margin: 3rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: #007acc;
+        }
+
+        section p,
+        section ul {
+            margin-top: 1rem;
+        }
+
+        section ul {
+            list-style: inside disc;
+            color: #555;
+        }
+
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code block */
+        pre {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.875rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Overview -->
+        <section id="overview">
+            <h2>📦 Overview</h2>
+            <p>
+                The Terraform AWS Resource Master is a “main” module that ties together multiple submodules to provision
+                a complete
+                AWS environment. Out of the box it can create:
+            </p>
+            <ul>
+                <li>VPC with public/private subnets, NAT gateways, route tables</li>
+                <li>EC2 instances with customizable AMIs, instance types, security groups</li>
+                <li>RDS instances (MySQL/Postgres) with configurable storage & backups</li>
+                <li>S3 buckets for app storage and logging</li>
+                <li>Plus optional submodules for CloudWatch alarms, DynamoDB tables, Lambda functions, and more</li>
+            </ul>
+        </section>
+
+        <!-- Prerequisites -->
+        <section id="prerequisites">
+            <h2>⚙️ Prerequisites</h2>
+            <ul>
+                <li>AWS account with IAM permissions for networking, compute, storage, database</li>
+                <li>Terraform v1.0+ installed locally</li>
+                <li>AWS CLI configured (<code>aws configure</code>) or environment variables set</li>
+            </ul>
+        </section>
+
+        <!-- Usage -->
+        <section id="usage">
+            <h2>🚀 Quick Start</h2>
+            <p>Create a root <code>main.tf</code> and reference the module:</p>
+            <pre><code>module "resource_master" {
+  source      = "Pradipbabar/resource-master/aws/"
+  enable_vpc  = true
+  enable_ec2  = true
+  enable_rds  = true
+  enable_s3   = true
+  # enable_cloudwatch = true
+  # enable_dynamodb  = true
+}</code></pre>
+            <p>Then run:</p>
+            <pre><code>terraform init
+terraform apply</code></pre>
+            <p>To tear down:</p>
+            <pre><code>terraform destroy</code></pre>
+        </section>
+
+        <!-- Submodules -->
+        <section id="submodules">
+            <h2>🔗 Submodules</h2>
+            <ul>
+                <li><strong>VPC:</strong> Public/private subnets, NAT, route tables</li>
+                <li><strong>EC2:</strong> Auto-scaled or fixed EC2 fleets</li>
+                <li><strong>RDS:</strong> MySQL/Postgres with backups & multi-AZ</li>
+                <li><strong>S3:</strong> Primary buckets + logging buckets</li>
+                <li><strong>CloudWatch:</strong> Alarms on CPU, disk, network</li>
+                <li><strong>DynamoDB:</strong> On-demand or provisioned tables</li>
+                <li>…and more via additional modules (Lambda, IAM roles, etc.)</li>
+            </ul>
+        </section>
+
+        <!-- Outputs -->
+        <section id="outputs">
+            <h2>📤 Outputs</h2>
+            <p>Each submodule exports useful values for chaining or reference:</p>
+            <ul>
+                <li>VPC ID, subnet IDs, route table IDs</li>
+                <li>EC2 instance IDs, public IPs</li>
+                <li>RDS endpoint, port</li>
+                <li>S3 bucket ARNs</li>
+                <li>CloudWatch alarm ARNs</li>
+            </ul>
+            <p>Check each submodule’s README for the full list.</p>
+        </section>
+
+        <!-- Next Steps -->
+        <section id="future">
+            <h2>🔮 Future Enhancements</h2>
+            <ul>
+                <li>Support for private DNS zones & Transit Gateway</li>
+                <li>Built-in Bastion Host & Session Manager setup</li>
+                <li>Terraform Cloud & state backends examples</li>
+                <li>Automated “blue/green” RDS upgrades</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 • Built by Pradip Babar • <a href="https://github.com/Pradipbabar/terraform-aws-resource-master"
+            target="_blank">GitHub Repo</a>
+    </footer>
+</body>
+
+</html>

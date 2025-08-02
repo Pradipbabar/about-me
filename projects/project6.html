@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MultiNode Test Lab</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+
+        /* Sections */
+        section {
+            margin: 3rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: #007acc;
+        }
+
+        section p,
+        section ul,
+        section ol {
+            margin-top: 1rem;
+        }
+
+        section ul {
+            list-style: inside disc;
+            color: #555;
+        }
+
+        section ol {
+            list-style: inside decimal;
+            color: #555;
+        }
+
+        section ul li,
+        section ol li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code blocks */
+        pre {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.875rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Overview -->
+        <section id="overview">
+            <h2>📦 Overview</h2>
+            <p>
+                Simulate a multi-node server environment using Docker Compose. Each container runs Ubuntu with SSH,
+                named uniquely and mapped to an auto-incremented host port—ideal for testing distributed software
+                and configuration management tools.
+            </p>
+        </section>
+
+        <!-- Prerequisites -->
+        <section id="prerequisites">
+            <h2>⚙️ Prerequisites</h2>
+            <ul>
+                <li>Docker installed on your host machine.</li>
+                <li>Docker Compose (v1.29.2+ preferred).</li>
+            </ul>
+            <p>On Ubuntu, for example:</p>
+            <pre><code>sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker ${USER} && su - ${USER}</code></pre>
+        </section>
+
+        <!-- Installation & Setup -->
+        <section id="setup">
+            <h2>🚀 Installation &amp; Setup</h2>
+            <ol>
+                <li>Clone the repository:
+                    <pre><code>git clone https://github.com/Pradipbabar/MultiNodeTestLab.git
+cd MultiNodeTestLab</code></pre>
+                </li>
+                <li>Generate an SSH key pair (if you don’t have one):
+                    <pre><code>ssh-keygen -t rsa -b 4096</code></pre>
+                </li>
+                <li>Adjust `Dockerfile` or `docker-compose.yml` if you need custom SSH keys or user setup.</li>
+                <li>Build and start containers:
+                    <pre><code>docker-compose up -d</code></pre>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Accessing Containers -->
+        <section id="access">
+            <h2>🔑 Accessing Containers</h2>
+            <p>List running containers:</p>
+            <pre><code>docker ps</code></pre>
+            <p>SSH into a container (replace `<container>` and `<port>`):</p>
+            <pre><code>ssh -i ~/.ssh/id_rsa -p <port> root@localhost</code></pre>
+        </section>
+
+        <!-- Usage Scenarios -->
+        <section id="scenarios">
+            <h2>🔥 Usage Scenarios</h2>
+            <ul>
+                <li><strong>Software Testing:</strong> Validate agents or clients that manage remote nodes.</li>
+                <li><strong>Configuration Management:</strong> Test Ansible, Chef, Puppet, or custom scripts.</li>
+                <li><strong>Network Simulation:</strong> Emulate network latency or failure between nodes.</li>
+            </ul>
+        </section>
+
+        <!-- Configuration -->
+        <section id="configuration">
+            <h2>⚙️ Configuration</h2>
+            <p>The core definitions live in <code>docker-compose.yml</code>:</p>
+            <pre><code>services:
+  node1:
+    build: .
+    container_name: node1
+    ports:
+      - "2201:22"
+  node2:
+    build: .
+    container_name: node2
+    ports:
+      - "2202:22"
+  # …</code></pre>
+            <p>Adjust the <code>nodes/</code> directory to add startup scripts, custom packages, or configuration for
+                each node.</p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 • Built by Pradip Babar • <a href="https://github.com/Pradipbabar/MultiNodeTestLab"
+            target="_blank">GitHub Repo</a>
+    </footer>
+</body>
+
+</html>

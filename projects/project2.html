@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini AI CLI</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Sections */
+        section {
+            margin: 3rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: #007acc;
+        }
+
+        section p,
+        section ul {
+            margin-top: 1rem;
+        }
+
+        section ul {
+            list-style: inside disc;
+            color: #555;
+        }
+
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code blocks */
+        pre {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.875rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Installation -->
+        <section id="installation">
+            <h2>⚙️ Installation</h2>
+            <p>Install the CLI with a single Go command:</p>
+            <pre><code>go install github.com/Pradipbabar/gemini-cli@latest</code></pre>
+        </section>
+
+        <!-- Commands -->
+        <section id="commands">
+            <h2>🛠️ Commands</h2>
+            <ul>
+                <li>
+                    <strong>configure</strong><br />
+                    Set your Gemini API access key in environment.
+                    <pre><code>gemini-cli configure -k YOUR_ACCESS_KEY</code></pre>
+                </li>
+                <li>
+                    <strong>chat</strong><br />
+                    Send a prompt and receive a chat response.
+                    <pre><code>gemini-cli chat -p "Your prompt text" -s output.txt</code></pre>
+                    <small><em>-s flag saves the output to a file (optional).</em></small>
+                </li>
+                <li>
+                    <strong>explain</strong><br />
+                    Generate explanations from input file.
+                    <pre><code>gemini-cli explain -f input.txt -s output.txt</code></pre>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Usage -->
+        <section id="usage">
+            <h2>🚀 Quick Usage</h2>
+            <ol>
+                <li>Run <code>gemini-cli configure</code> to store your key.</li>
+                <li>Use <code>gemini-cli chat</code> to have interactive conversations.</li>
+                <li>Use <code>gemini-cli explain</code> to process text files.</li>
+            </ol>
+            <p>The access key is saved in <code>GEMINI_AI_ACCESS_KEY</code> for subsequent commands.</p>
+        </section>
+
+        <!-- Examples -->
+        <section id="examples">
+            <h2>📚 Examples</h2>
+            <p><strong>Configure your key:</strong></p>
+            <pre><code>gemini-cli configure -k sk-1234567890abcdef</code></pre>
+
+            <p><strong>Chat and save response:</strong></p>
+            <pre><code>gemini-cli chat -p "Tell me a story" -s story.txt</code></pre>
+
+            <p><strong>Explain from file:</strong></p>
+            <pre><code>gemini-cli explain -f notes.txt -s explanation.txt</code></pre>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 • Built by Pradip Babar • <a href="https://github.com/Pradipbabar/gemini-cli" target="_blank">GitHub
+            Repo</a>
+    </footer>
+</body>
+
+</html>

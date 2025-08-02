@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImageSecretSyncOperator</title>
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+
+        /* Sections */
+        section {
+            margin: 3rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: #007acc;
+        }
+
+        section p,
+        section ul {
+            margin-top: 1rem;
+        }
+
+        section ul {
+            list-style: inside disc;
+            color: #555;
+        }
+
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Card */
+        .card {
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            border-radius: 6px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.875rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section id="challenge">
+            <h2>🌐 The Challenge</h2>
+            <p>
+                In Kubernetes, every namespace needs its own image pull secret to fetch private container images.
+                Manually creating and updating these secrets across dozens of namespaces becomes:
+            </p>
+            <ul>
+                <li><strong>Tedious &amp; Error-Prone:</strong> Copy-paste mistakes leave deployments broken.</li>
+                <li><strong>Time-Consuming:</strong> Running repetitive commands for each new namespace.</li>
+                <li><strong>Hard to Audit:</strong> Rotating credentials means hunting down every secret to update.</li>
+            </ul>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution">
+            <h2>🛠️ Our Solution</h2>
+            <p>
+                Define a single <code>ClustRegCred</code> custom resource with your registry credentials and target
+                namespaces.
+                The operator then:
+            </p>
+            <ul>
+                <li>Automatically creates (or updates) the named image pull secret in each listed namespace.</li>
+                <li>Watches for changes—to keep all secrets in sync when you rotate credentials.</li>
+            </ul>
+            <div class="card">
+                <h3>ClustRegCred Example</h3>
+                <pre><code>apiVersion: registry.example.com/v1
+kind: ClustRegCred
+metadata:
+  name: sample-clustregcred
+spec:
+  registry: https://index.docker.io/v1/
+  username: your-user
+  password: your-pass
+  secretName: my-image-pull-secret
+  namespaces:
+    - project-alpha
+    - project-beta
+</code></pre>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits">
+            <h2>🤝 Why It Matters</h2>
+            <ul>
+                <li><strong>Peace of Mind:</strong> One source of truth for your registry credentials.</li>
+                <li><strong>Zero Downtime:</strong> Instant rollout of rotated passwords—no manual steps.</li>
+                <li><strong>Audit-Friendly:</strong> All changes tracked in Git and Kubernetes events.</li>
+            </ul>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section id="next-steps">
+            <h2>🚧 Next Steps &amp; Ideas</h2>
+            <p>Future enhancements and alternative “secret injection” patterns under consideration:</p>
+            <ul>
+                <li>Mutating Webhook Injection</li>
+                <li>Sidecar / Init Container Pattern</li>
+                <li>Namespace-Bound ServiceAccount Secrets</li>
+            </ul>
+            <p>Have other ideas? <strong>Let me know!</strong></p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 • Built by Pradip Babar • <a href="https://github.com/Pradipbabar/ImageSecretSyncOperator"
+            target="_blank">GitHub Repo</a>
+    </footer>
+</body>
+
+</html>

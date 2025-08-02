@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECS Action Test</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+
+        /* Sections */
+        section {
+            margin: 3rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: #007acc;
+        }
+
+        section p,
+        section ul,
+        section ol {
+            margin-top: 1rem;
+        }
+
+        section ul {
+            list-style: inside disc;
+            color: #555;
+        }
+
+        section ol {
+            list-style: inside decimal;
+            color: #555;
+        }
+
+        section ul li,
+        section ol li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code blocks */
+        pre {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.875rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Overview -->
+        <section id="overview">
+            <h2>📦 Overview</h2>
+            <p>
+                <strong>ECS Action Test</strong> provides a reusable GitHub Action that provisions and updates AWS ECS
+                infrastructure using Terraform. Automate your VPC, ECS clusters, task definitions, and more
+                directly from your CI/CD workflows.
+            </p>
+        </section>
+
+        <!-- Usage -->
+        <section id="usage">
+            <h2>🚀 Usage</h2>
+            <p>Create a GitHub workflow in <code>.github/workflows/deploy.yml</code>:</p>
+            <pre><code>name: Deploy ECS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run ECS Terraform Action
+        uses: quantumci/ecs-action-test@v1
+        with:
+          base_conf_var: './Base_Infra/config.tfvars'
+          platform_conf_var: './Platform_Infra/config.tfvars'
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: 'us-east-1'
+          remote_bucket_name: 'my-terraform-state-bucket'
+          remote_bucket_region: 'us-east-1'
+          action: 'apply'</code></pre>
+        </section>
+
+        <!-- Inputs -->
+        <section id="inputs">
+            <h2>⚙️ Inputs</h2>
+            <ul>
+                <li><strong>base_conf_var</strong>: Path to your base TFVars (e.g.
+                    <code>./Base_Infra/config.tfvars</code>).</li>
+                <li><strong>platform_conf_var</strong>: Path to your platform TFVars (e.g.
+                    <code>./Platform_Infra/config.tfvars</code>).</li>
+                <li><strong>aws_access_key</strong>: AWS Access Key ID (set as GitHub secret).</li>
+                <li><strong>aws_secret_access_key</strong>: AWS Secret Access Key (set as GitHub secret).</li>
+                <li><strong>aws_region</strong>: AWS region (e.g. <code>us-east-1</code>).</li>
+                <li><strong>remote_bucket_name</strong>: S3 bucket for Terraform state.</li>
+                <li><strong>remote_bucket_region</strong>: Region of the S3 bucket.</li>
+                <li><strong>action</strong>: Terraform action to perform (<code>apply</code> or <code>destroy</code>).
+                </li>
+            </ul>
+        </section>
+
+        <!-- Steps -->
+        <section id="steps">
+            <h2>🔧 Steps</h2>
+            <ol>
+                <li>Define your <code>.tfvars</code> files under <code>Base_Infra</code> and
+                    <code>Platform_Infra</code>.</li>
+                <li>Set AWS credentials as repository secrets: <code>AWS_ACCESS_KEY_ID</code> &
+                    <code>AWS_SECRET_ACCESS_KEY</code>.</li>
+                <li>Commit your workflow and trigger via “Run workflow” in the Actions tab.</li>
+                <li>The Action will initialize, plan, and apply your Terraform configurations.</li>
+            </ol>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 • Built by Quantum CI • <a href="https://github.com/quantumci/ecs-action-test"
+            target="_blank">GitHub Repo</a>
+    </footer>
+</body>
+
+</html>
