@@ -4,16 +4,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Pradip Babar - DevOps Engineer | Portfolio</title>
+  <meta name="description" content="Experienced DevOps Engineer specializing in cloud infrastructure, Kubernetes, Terraform, and CI/CD pipelines. Explore my projects and expertise in AWS, automation, and scalable solutions." />
+  <meta name="keywords" content="DevOps Engineer, Cloud Architect, AWS, Kubernetes, Terraform, CI/CD, Docker, Infrastructure as Code, Pradip Babar, Portfolio" />
+  <meta name="author" content="Pradip Babar" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Pradip Babar - DevOps Engineer" />
+  <meta property="og:description" content="Experienced DevOps Engineer specializing in cloud infrastructure, Kubernetes, Terraform, and CI/CD pipelines." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/perfil.png" />
+  <meta property="og:url" content="https://pradipbabar.github.io/about-me/" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pradip Babar - DevOps Engineer & Cloud Architect" />
+  <meta name="twitter:description" content="Experienced DevOps Engineer specializing in cloud infrastructure, Kubernetes, Terraform, and CI/CD pipelines." />
+  <meta name="twitter:image" content="assets/img/perfil.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/img/perfil.png" />
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <!-- =====BOX ICONS===== -->
+  
+  <!-- External Resources -->
   <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
-
-  <title>Pradip Babar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#4070f4" />
 </head>
 
 <body>
   <!--===== HEADER =====-->
-  <header class="l-header">
+  <header class="l-header" id="header">
     <nav class="nav bd-grid">
       <div>
         <a href="#" class="nav__logo">Pradip</a>
@@ -22,25 +50,45 @@
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
           <li class="nav__item">
-            <a href="#home" class="nav__link active-link">Home</a>
+            <a href="#home" class="nav__link active-link">
+              <i class="bx bx-home"></i>
+              Home
+            </a>
           </li>
           <li class="nav__item">
-            <a href="#about" class="nav__link">About</a>
+            <a href="#about" class="nav__link">
+              <i class="bx bx-user"></i>
+              About
+            </a>
           </li>
           <li class="nav__item">
-            <a href="#skills" class="nav__link">Skills</a>
+            <a href="#skills" class="nav__link">
+              <i class="bx bx-code-alt"></i>
+              Skills
+            </a>
           </li>
           <li class="nav__item">
-            <a href="#work" class="nav__link">Work</a>
+            <a href="#work" class="nav__link">
+              <i class="bx bx-briefcase"></i>
+              Work
+            </a>
           </li>
           <li class="nav__item">
-            <a href="#contact" class="nav__link">Contact</a>
+            <a href="#contact" class="nav__link">
+              <i class="bx bx-message-square-detail"></i>
+              Contact
+            </a>
           </li>
         </ul>
       </div>
 
-      <div class="nav__toggle" id="nav-toggle">
-        <i class="bx bx-menu"></i>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <i class="bx bx-moon"></i>
+        </button>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
       </div>
     </nav>
   </header>
@@ -50,18 +98,40 @@
     <section class="home bd-grid" id="home">
       <div class="home__data">
         <h1 class="home__title">
-          Hi 🙋‍♂️,<br />I'm <span class="home__title-color">Pradip</span><br />
-          <span class="animated-title"></span>
+          Hi 🙋,<br />I'm <span class="home__title-color">Pradip Babar</span><br />
+          <span class="animated-title">DevOps Engineer</span>
         </h1>
+        
+        <p class="home__description">
+          Passionate about building scalable cloud infrastructure and automating deployment pipelines. 
+          I help teams deliver faster with reliable, secure, and efficient DevOps practices.
+        </p>
 
-        <a href="assets/resume/PradipBabar_CV.pdf" class="button" download="Pradip_Babar_Resume.pdf">Download <i
-            class="bx bxs-download"></i></a>
+        <div class="home__buttons">
+          <a href="assets/resume/PradipBabar_CV.pdf" class="button button--primary" download="Pradip_Babar_Resume.pdf">
+            <i class="bx bxs-download"></i>
+            Download Resume
+          </a>
+          <a href="#contact" class="button button--secondary">
+            <i class="bx bx-envelope"></i>
+            Let's Connect
+          </a>
+        </div>
       </div>
 
       <div class="home__social">
-        <a href="https://www.linkedin.com/in/pradip-babar-7ab00b1a1/" class="home__social-icon"><i
-            class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/Pradipbabar" class="home__social-icon"><i class="bx bxl-github"></i></a>
+        <a href="https://www.linkedin.com/in/pradip-babar-7ab00b1a1/" class="home__social-icon" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+          <i class="bx bxl-linkedin"></i>
+        </a>
+        <a href="https://github.com/Pradipbabar" class="home__social-icon" target="_blank" rel="noopener" aria-label="GitHub Profile">
+          <i class="bx bxl-github"></i>
+        </a>
+        <a href="https://x.com/pradipbabar" class="home__social-icon" target="_blank" rel="noopener" aria-label="Twitter Profile">
+          <i class="bx bxl-twitter"></i>
+        </a>
+        <a href="mailto:prb5928@gmail.com" class="home__social-icon" aria-label="Send Email">
+          <i class="bx bx-envelope"></i>
+        </a>
       </div>
 
       <div class="home__img">
@@ -74,19 +144,27 @@
           <g mask="url(#mask0)">
             <path
               d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
-            <image class="home__blob-img" x="35" y="5" href="assets/img/perfil.png" />
+            <image class="home__blob-img" x="35" y="1" width="450" height="475" href="assets/img/perfil.png" />
           </g>
         </svg>
+      </div>
+
+      <div class="home__scroll">
+        <a href="#about" class="home__scroll-button">
+          <i class="bx bx-mouse"></i>
+          <span class="home__scroll-name">Scroll down</span>
+          <i class="bx bx-down-arrow-alt"></i>
+        </a>
       </div>
     </section>
 
     <!--===== ABOUT =====-->
     <section class="about section" id="about">
-      <h2 class="section-title"> 👤 About</h2>
+      <h2 class="section-title">👤 About Me</h2>
 
       <div class="about__container bd-grid">
         <div class="about__img">
-          <img src="assets/img/about.jpg" alt="" />
+          <img src="assets/img/about.jpg" alt="Pradip Babar - DevOps Engineer" loading="lazy" />
         </div>
 
         <div>
@@ -325,14 +403,71 @@
 
     <!--===== CONTACT =====-->
     <section class="contact section" id="contact">
-      <h2 class="section-title">📞 Contact</h2>
+      <h2 class="section-title">📞 Get In Touch</h2>
 
       <div class="contact__container bd-grid">
+        <div class="contact__info">
+          <h3 class="contact__subtitle">Let's Collaborate!</h3>
+          <p class="contact__description">
+            I'm always excited to discuss new opportunities, innovative projects, or potential collaborations. 
+            Whether you're looking for DevOps expertise, cloud solutions, or just want to connect with a fellow tech enthusiast, 
+            I'd love to hear from you!
+          </p>
+          
+          <div class="contact__info-items">
+            <div class="contact__info-item">
+              <i class="bx bx-envelope contact__info-icon"></i>
+              <div>
+                <span class="contact__info-title">Email</span>
+                <span class="contact__info-subtitle">prb5928@gmail.com</span>
+              </div>
+            </div>
+            
+            <div class="contact__info-item">
+              <i class="bx bx-map contact__info-icon"></i>
+              <div>
+                <span class="contact__info-title">Location</span>
+                <span class="contact__info-subtitle">Available Remotely</span>
+              </div>
+            </div>
+            
+            <div class="contact__info-item">
+              <i class="bx bx-time contact__info-icon"></i>
+              <div>
+                <span class="contact__info-title">Response Time</span>
+                <span class="contact__info-subtitle">Within 24 hours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <form id="contactForm" class="contact__form">
-          <input id="name" type="text" placeholder="Name" class="contact__input" />
-          <input id="email" type="email" placeholder="Email" class="contact__input" />
-          <textarea id="message" cols="0" rows="10" placeholder="Your message" class="contact__input"></textarea>
-          <input id="submit" type="button" value="Submit" class="contact__button button" />
+          <div class="contact__inputs">
+            <div class="contact__input-group">
+              <input id="name" type="text" placeholder="Your Name" class="contact__input" required />
+              <span class="contact__input-error" id="name-error"></span>
+            </div>
+            
+            <div class="contact__input-group">
+              <input id="email" type="email" placeholder="Your Email" class="contact__input" required />
+              <span class="contact__input-error" id="email-error"></span>
+            </div>
+          </div>
+          
+          <div class="contact__input-group">
+            <input id="subject" type="text" placeholder="Subject" class="contact__input" required />
+            <span class="contact__input-error" id="subject-error"></span>
+          </div>
+          
+          <div class="contact__input-group">
+            <textarea id="message" cols="0" rows="7" placeholder="Your message" class="contact__input contact__textarea" required></textarea>
+            <span class="contact__input-error" id="message-error"></span>
+          </div>
+          
+          <button id="submit" type="submit" class="contact__button button">
+            <i class="bx bx-send"></i>
+            Send Message
+          </button>
         </form>
       </div>
     </section>
@@ -351,11 +486,34 @@
       </div>
     </footer>
 
+    <!--===== SCROLL UP =====-->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="bx bx-up-arrow-alt scrollup__icon"></i>
+    </a>
+
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Success message CSS for contact form -->
+    <style>
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      
+      .success-message {
+        animation: slideInRight 0.3s ease;
+      }
+    </style>
 </body>
 
 </html>
