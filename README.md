@@ -1,4 +1,3 @@
-
 # 🚀 Pradip Babar - DevOps Engineer Portfolio
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://pradipbabar.github.io/about-me/)
